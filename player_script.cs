@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class player_script : MonoBehaviour
 {
     public float speed;
@@ -15,6 +15,9 @@ public class player_script : MonoBehaviour
     public float groundCheckRadius = 0.1f;
 
     private Rigidbody2D rb;
+
+    public bool hasQuestItem = false;
+    public TextMeshProUGUI questText;
 
     private void Start()
     {
@@ -39,24 +42,22 @@ public class player_script : MonoBehaviour
         }
     }
 
-
-    void OnTriggerStay2D(Collider2D other)
+    public void UpdateQuest()
     {
-        // Zde mùžete provést akce, které chcete provést pøi vstupu do triggeru
-        Debug.Log("Vstoupil jsi do triggeru objektu: " + other.gameObject.name);
+        questText.text = Variables.currentQuest;
     }
     
     bool IsGrounded()
     {
         Vector2 groundCheckPosition = new Vector2(groundCheck.position.x, groundCheck.position.y);
-        // Zjistìní, zda se objekt dotýká zemì
+        // Zjistï¿½nï¿½, zda se objekt dotï¿½kï¿½ zemï¿½
         return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
     }
 
     void OnTriggerEnter2D(Collider2D pojistka2)
     {
-        // Zavolá se, když tento trigger vstoupí do jiného triggeru nebo kolize
-        Debug.Log("Nìco vstoupilo do triggeru.");
+        // Zavolï¿½ se, kdyï¿½ tento trigger vstoupï¿½ do jinï¿½ho triggeru nebo kolize
+        Debug.Log("Nï¿½co vstoupilo do triggeru.");
     }
 }
 
