@@ -16,7 +16,7 @@ public class player_script : MonoBehaviour
     public Collider2D platform_CO;
     public Transform platfrom_TR;
 
-    //invent��
+    //inventáø
     public static bool pojistka = false;
     public static bool key = false;
 
@@ -49,33 +49,23 @@ public class player_script : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-=======
+
     public void UpdateQuest()
     {
         questText.text = Variables.currentQuest;
     }
->>>>>>> f82a7b00189f399c59d6f2d21bb23d7d65aedb8e
-    
+
     bool IsGrounded()
     {
         Vector2 groundCheckPosition = new Vector2(groundCheck.position.x, groundCheck.position.y);
-        // Zjist�n�, zda se objekt dot�k� zem�
+        // Zjistï¿½nï¿½, zda se objekt dotï¿½kï¿½ zemï¿½
         return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
     }
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
     void OnTriggerEnter2D(Collider2D pojistka2)
     {
-        // Zavol� se, kdy� tento trigger vstoup� do jin�ho triggeru nebo kolize
-        Debug.Log("N�co vstoupilo do triggeru.");
+        // Zavolï¿½ se, kdyï¿½ tento trigger vstoupï¿½ do jinï¿½ho triggeru nebo kolize
+        Debug.Log("Nï¿½co vstoupilo do triggeru.");
     }
->>>>>>> f82a7b00189f399c59d6f2d21bb23d7d65aedb8e
 }
 
