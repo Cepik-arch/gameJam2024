@@ -6,12 +6,15 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public TMP_Text timer;
+
     private bool timerOn = true;
 
     public float time = 60f;
     private float timeReal;
     public GameObject testObject;
     public GameObject checkpoint;
+
+    public WorldController worldController;
 
     void Start()
     {
@@ -37,7 +40,7 @@ public class Timer : MonoBehaviour
     public void timerEnds()
     {
         timeReal = time;
-        testObject.transform.position = checkpoint.transform.position;
+        worldController.ChangeScene();
 
     }
 }

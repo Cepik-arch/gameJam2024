@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class player_script : MonoBehaviour
 {
 
@@ -21,6 +21,9 @@ public class player_script : MonoBehaviour
     public static bool key = false;
 
     private Rigidbody2D rb;
+
+    public bool hasQuestItem = false;
+    public TextMeshProUGUI questText;
 
     private void Start()
     {
@@ -46,18 +49,33 @@ public class player_script : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void UpdateQuest()
+    {
+        questText.text = Variables.currentQuest;
+    }
+>>>>>>> f82a7b00189f399c59d6f2d21bb23d7d65aedb8e
     
     bool IsGrounded()
     {
         Vector2 groundCheckPosition = new Vector2(groundCheck.position.x, groundCheck.position.y);
-        // Zjistìní, zda se objekt dotýká zemì
+        // Zjistï¿½nï¿½, zda se objekt dotï¿½kï¿½ zemï¿½
         return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
     }
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+    void OnTriggerEnter2D(Collider2D pojistka2)
+    {
+        // Zavolï¿½ se, kdyï¿½ tento trigger vstoupï¿½ do jinï¿½ho triggeru nebo kolize
+        Debug.Log("Nï¿½co vstoupilo do triggeru.");
+    }
+>>>>>>> f82a7b00189f399c59d6f2d21bb23d7d65aedb8e
 }
 
