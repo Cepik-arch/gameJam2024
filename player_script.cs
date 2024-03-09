@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class player_script : MonoBehaviour
 {
+
     public float speed;
     public float jump_speed;
-
-    public Collider2D pojistka2;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
     public float groundCheckRadius = 0.1f;
+
+    public Collider2D platform_CO;
+    public Transform platfrom_TR;
+
+    //inventáø
+    public static bool pojistka = false;
+    public static bool key = false;
 
     private Rigidbody2D rb;
 
@@ -23,6 +29,7 @@ public class player_script : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(pojistka);
 
         float moveHorizontal = Input.GetAxis("Horizontal");
 
@@ -39,12 +46,6 @@ public class player_script : MonoBehaviour
         }
     }
 
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        // Zde mùžete provést akce, které chcete provést pøi vstupu do triggeru
-        Debug.Log("Vstoupil jsi do triggeru objektu: " + other.gameObject.name);
-    }
     
     bool IsGrounded()
     {
@@ -53,10 +54,10 @@ public class player_script : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
     }
 
-    void OnTriggerEnter2D(Collider2D pojistka2)
-    {
-        // Zavolá se, když tento trigger vstoupí do jiného triggeru nebo kolize
-        Debug.Log("Nìco vstoupilo do triggeru.");
-    }
+
+
+
+
+
 }
 
