@@ -14,10 +14,14 @@ public class player_script : MonoBehaviour
 
     public Transform groundCheck;
     public LayerMask groundLayer;
+        public LayerMask groundLayer1;
     public float groundCheckRadius = 0.1f;
 
     public Collider2D platform_CO;
     public Transform platfrom_TR;
+    public bool hasQuestItem = false;
+    public bool hasKey = false;
+    public TextMeshProUGUI questText;
     
     //inventory
     public static bool pojistka = false;
@@ -40,14 +44,14 @@ public class player_script : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded()||IsGrounded1()))
         {
             Vector3 jump = Vector3.up * jump_speed;
             GetComponent<Rigidbody2D>().AddForce(jump, ForceMode2D.Impulse);
             animator.SetBool("IsJump", true);
         }
 
-        if(IsGrounded())
+        if((IsGrounded()||IsGrounded1()))
         {
             animator.SetBool("IsJump", false);
         }
@@ -62,25 +66,22 @@ public class player_script : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        Debug.Log("Vstoupil jsi do triggeru objektu: " + other.gameObject.name);
-    }
-
     bool IsGrounded()
     {
         Vector2 groundCheckPosition = new Vector2(groundCheck.position.x, groundCheck.position.y);
         return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
     }
 
-    void OnTriggerEnter2D(Collider2D pojistka2)
-    {
-        Debug.Log("Nìco vstoupilo do triggeru.");
-    }
-
     public void UpdateQuest()
     {
-        //questText.text = Variables.currentQuest;
+        questText.text = Variables.currentQuest;
     }
+
+    public bool IsGrounded1()
+    {
+        Vector2 groundCheckPosition = new Vector2(groundCheck.position.x, groundCheck.position.y);
+        return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer1);
+    }
+
 }
 
