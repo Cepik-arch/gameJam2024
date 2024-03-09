@@ -2,28 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 public class player_script : MonoBehaviour
 {
-
     public float speed;
     public float jump_speed;
+
+    public Collider2D pojistka2;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
     public float groundCheckRadius = 0.1f;
 
-    public Collider2D platform_CO;
-    public Transform platfrom_TR;
-
-    //inventáø
-    public static bool pojistka = false;
-    public static bool key = false;
-
     private Rigidbody2D rb;
-
-    public bool hasQuestItem = false;
-    public TextMeshProUGUI questText;
 
     private void Start()
     {
@@ -32,7 +23,6 @@ public class player_script : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(pojistka);
 
         float moveHorizontal = Input.GetAxis("Horizontal");
 
@@ -50,22 +40,23 @@ public class player_script : MonoBehaviour
     }
 
 
-    public void UpdateQuest()
+    void OnTriggerStay2D(Collider2D other)
     {
-        questText.text = Variables.currentQuest;
+        // Zde m��ete prov�st akce, kter� chcete prov�st p�i vstupu do triggeru
+        Debug.Log("Vstoupil jsi do triggeru objektu: " + other.gameObject.name);
     }
-
+    
     bool IsGrounded()
     {
         Vector2 groundCheckPosition = new Vector2(groundCheck.position.x, groundCheck.position.y);
-        // Zjistï¿½nï¿½, zda se objekt dotï¿½kï¿½ zemï¿½
+        // Zjist�n�, zda se objekt dot�k� zem�
         return Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
     }
 
     void OnTriggerEnter2D(Collider2D pojistka2)
     {
-        // Zavolï¿½ se, kdyï¿½ tento trigger vstoupï¿½ do jinï¿½ho triggeru nebo kolize
-        Debug.Log("Nï¿½co vstoupilo do triggeru.");
+        // Zavol� se, kdy� tento trigger vstoup� do jin�ho triggeru nebo kolize
+        Debug.Log("N�co vstoupilo do triggeru.");
     }
 }
 
