@@ -194,6 +194,7 @@ public class Pause_game : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+
             if (Variables.realm == 0)
             {
                 Debug.Log("Paused");
@@ -261,89 +262,6 @@ public class Pause_game : MonoBehaviour
             MusicOff_N.SetActive(true);
             MusicOn_N.SetActive(false);
         }
-
-        /*
-        //////////////// pause menu pro dobrý svìt
-
-        // pokraèování ve høe
-        if (Input.GetMouseButtonDown(0) && hit.collider.name == "Play_N")
-        {
-            if (Variables.realm == 0)
-            {
-                Debug.Log("Hra byla odpauznuta");
-                paused_GO.SetActive(false);
-                paused = false;
-                Time.timeScale = 1;
-            }
-            else if (Variables.realm == 1)
-            {
-                Debug.Log("Hra byla odpauznuta");
-                paused_GO_N.SetActive(false);
-                paused = false;
-                Time.timeScale = 1;
-            }
-        }
-        //ukonèení hry
-        if (Input.GetMouseButtonDown(0) && hit.collider.name == "Exit_N")
-        {
-            Debug.Log("Hra byla ukonèena.");
-            //Application.Quit();
-        }
-        if (Input.GetMouseButtonDown(0) && hit.collider.name == "SoundOn_N")
-        {
-            Debug.Log("zvuk");
-            SoundOn.SetActive(false);
-            SoundOff.SetActive(true);
-            foreach (AudioSource audioSource in audioSources)
-            {
-                if (audioSource.CompareTag(SoundTag))
-                {
-                    audioSource.enabled = false; // Vypneme Audio Source s odpovídajícím tagem
-                }
-            }
-
-
-        }
-        if (Input.GetMouseButtonDown(0) && hit.collider.name == "SoundOff_N")
-        {
-            Debug.Log("zvukoff");
-            SoundOn.SetActive(true);
-            SoundOff.SetActive(false);
-            foreach (AudioSource audioSource in audioSources)
-            {
-                if (audioSource.CompareTag(SoundTag))
-                {
-                    audioSource.enabled = true; // Zapneme Audio Source s odpovídajícím tagem
-                }
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0) && hit.collider.name == "MusicOn_N")
-        {
-            Debug.Log("hudba");
-            MusicOn.SetActive(false);
-            MusicOff.SetActive(true);
-            foreach (AudioSource audioSource in audioSources)
-            {
-                if (audioSource.CompareTag(MusicTag))
-                {
-                    audioSource.enabled = false; // Vypneme Audio Source s odpovídajícím tagem
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(0) && hit.collider.name == "MusicOff_N")
-        {
-            Debug.Log("hudbaoff");
-            MusicOn.SetActive(true);
-            MusicOff.SetActive(false);
-            foreach (AudioSource audioSource in audioSources)
-            {
-                if (audioSource.CompareTag(MusicTag))
-                {
-                    audioSource.enabled = true; // Zapneme Audio Source s odpovídajícím tagem
-                }
-            }
-        }*/
 
 
     }
