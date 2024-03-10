@@ -9,7 +9,7 @@ public class pojistka_script : MonoBehaviour
     void OnTriggerEnter2D(Collider2D player_CO)
     {
         Debug.Log("Sebral jsi pojistku.");
-        player_script.pojistka = true;
+        //player_script.pojistka = true;
         Destroy(gameObject);
     }
 

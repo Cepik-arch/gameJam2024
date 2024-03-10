@@ -9,6 +9,7 @@ public class CodeDoor : MonoBehaviour
     private string code = "";
     public TextMeshProUGUI codeText;
     public float textTime = 2f;
+    public string rightCode;
 
     void Update()
     {
@@ -22,11 +23,16 @@ public class CodeDoor : MonoBehaviour
                 textTime = 2f;
             }
         }
-        if (code == "1994")
+        if (code == rightCode)
         {
-            Debug.Log("Kod je spravny");
             codingDevice.SetActive(false);
             Destroy(gameObject);
+        }
+        else if (code.Length == 3)
+        {
+            code = "WRONG";
+            codeText.text = code;
+            textTime = 1f;
         }
     }
     public void OnTriggerEnter2D(Collider2D other)

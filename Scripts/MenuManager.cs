@@ -14,4 +14,11 @@ public class MenuManager : MonoBehaviour
         player.SetActive(true);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+
+
 }

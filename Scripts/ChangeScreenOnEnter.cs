@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScreenOnEnter : MonoBehaviour
 {
-    // Specify the name of the scene you want to load
     public string sceneName;
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -5,4 +5,6 @@ using UnityEngine;
 public static class Variables 
 {
     public static int realm = 0;
+    public static string currentQuest = "";
+    public static GameObject questItem;
 }

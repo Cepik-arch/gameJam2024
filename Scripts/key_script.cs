@@ -9,7 +9,7 @@ public class key_script : MonoBehaviour
     void OnTriggerEnter2D(Collider2D player_CO)
     {
         Debug.Log("Sebral jsi klíè.");
-        player_script.key = true;
+        //player_script.key = true;
         Destroy(gameObject);
     }
 }

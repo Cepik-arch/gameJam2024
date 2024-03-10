@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class spike_script : MonoBehaviour
 {
-    public Collider2D player_C0;
+    public GameObject player;
+    public GameObject checkpoint;
 
-
-    void OnTriggerEnter2D(Collider2D player_C0)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Šlapnul jsi na spiky.");
-        player_script.alive = false;
-
+        if (other.CompareTag("Player"))
+        {
+            player.SetActive(false);
+            player.transform.position = checkpoint.transform.position;
+            player.SetActive(true);
+        }
     }
+
 }
